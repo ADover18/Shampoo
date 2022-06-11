@@ -1,0 +1,49 @@
+.section {
+  margin-top: 3rem;
+  padding: 0 3rem;
+  height: calc(var(--vvh, 1vh) * 100);
+  width: 100vw;
+  scroll-snap-align: start;
+  font-size: 1.3rem;
+  overflow-y: scroll;
+  &--aboutme {
+    font-weight: var(--weight-smtext);
+    color: var(--color-smtext);
+    &__text {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      height: calc(var(--vvh, 1vh) * 100 - 101px);
+      & > * {
+        margin-bottom: 1rem;
+      }
+    }
+    @media only screen and (min-width: 23em) {
+      font-size: 1.4rem;
+    }
+    @media only screen and (min-width: 27.81em) {
+      font-size: 1.6rem;
+    }
+    @media only screen and (min-width: 45.625em) {
+      padding-left: calc(3rem + 7vw);
+      padding-right: calc(3rem + 7vw);
+      font-size: calc(9.788px + 0.85vw);
+    }
+    @media only screen and (min-width: 68.75em) {
+      margin-top: 10rem;
+    }
+    li {
+      margin-left: 3rem;
+    }
+  }
+  &--projects {
+    max-height: 100vh;
+    overflow: hidden;
+  }
+  &----cv__pdf {
+    max-width: 80vw;
+    max-height: 80vh;
+    max-height: calc(var(--vvh, 1vh) * 80);
+    @include absolute-center;
+  }
+}

@@ -1,0 +1,32 @@
+/* Colors-------------------------------------*/
+// See Theme Component for colour variables linked to themes
+$color-grey-dark: #707074;
+
+$color-white: #fff;
+$color-black: #000;
+
+$color-success: #5cb85c;
+$color-danger: #c32430;
+
+$color-tw-stgrey6: #78716c;
+
+/* ------------------------------------------------*/
+
+$default-font-size: 1.6rem;
+
+/* Box Shadows-------------------------------------*/
+
+$box-shadow-btn-up: 0 1rem 2rem rgba($color-black, 0.15);
+$box-shadow-btn-down: 0 0.5rem 1rem rgba($color-black, 0.15);
+
+/* ------------------------------------------------*/
+
+:root {
+  --vvh: 1vh;
+  --vvw: 1vw;
+  // --heading1-x-movement: 0;
+  // --heading1-y-movement: 0;
+  // --heading2-x-movement: 0;
+  // --heading2-y-movement: 0;
+  --headings-length: 75vw;
+}

@@ -1,0 +1,173 @@
+.card {
+  perspective: 150rem;
+  width: 100%;
+  height: 18vh;
+  height: calc(var(--vvh, 1vh) * 18);
+  z-index: 0;
+
+  margin: 0.7rem;
+  @include respond(tab-port) {
+    width: calc(50% - 1.4rem);
+  }
+  @media only screen and (min-width: 45.625em) {
+    height: calc((50vw - 4.4rem) * 0.3599625);
+  }
+  @media only screen and (min-width: 940px) {
+    margin: calc(25vw - 207.5px - 1.5rem - 0.7rem);
+  }
+  @media only screen and (min-width: 1064px) {
+    margin: 3.6rem;
+  }
+  max-height: 149.375px;
+  max-width: 415px;
+
+  &__text {
+    width: 100%;
+    text-align: center;
+    @include absolute-center;
+    &--lower {
+      border-top: solid $color-grey-dark 1px;
+      padding-top: 1.2rem;
+    }
+    &--github {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+    }
+    &--inner {
+      margin: 0.5rem;
+    }
+  }
+
+  &__side {
+    height: 100%;
+    font-size: 2rem;
+    width: 100%;
+    transition: transform 0.8s ease, height 0.8s ease;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    overflow: hidden;
+    text-align: left;
+
+    &-description {
+      text-align: center;
+      font-size: 2rem;
+      display: block;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      &--small {
+        font-size: 1.7rem;
+      }
+      &--xsmall {
+        font-size: 1.7rem;
+      }
+    }
+
+    &--front {
+      background-color: var(--color-lightbackground);
+
+      &-CSArt {
+        font-family: "Helvetica Neue", sans-serif;
+        font-weight: 300;
+        font-size: 2.5rem;
+        color: $color-tw-stgrey6;
+      }
+
+      &-SGWrites {
+        font-family: "Zilla Slab", serif;
+        font-weight: 500;
+        font-size: 3rem;
+        background-color: #333333;
+        color: #ffffe9;
+        line-height: 1.3;
+      }
+
+      &-Github {
+        background-color: #24292f;
+        color: rgb(255, 255, 233);
+        font-weight: 400;
+        font-size: 2.5rem;
+      }
+      &-Portfolio {
+        line-height: 2.5;
+      }
+    }
+    &--back {
+      background-color: var(--color-backgroundcard);
+      font-size: 1.4rem;
+      padding: 1.3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: var(--color-cardtext);
+      -webkit-font-smoothing: antialiased;
+      font-smooth: always;
+    }
+  }
+
+  // HOVER EFFECTS IMPLEMENTED FOR NON TOUCH SCREENS
+  @media (any-hover: hover) {
+    &:hover {
+      z-index: 555555 !important;
+      transition-delay: 0s;
+    }
+    &:hover &__side--front {
+      transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back {
+      transform: rotateY(0);
+      height: calc(72vh + 3.6rem);
+      height: calc(var(--vvh, 1vh) * 73 + 4.2rem);
+      width: calc(100vw - 6rem);
+    }
+    &:not(:hover) &__side--back {
+      transform: translate3d(0, 0, 0) rotateY(180deg);
+    }
+  }
+
+  &__logo {
+    height: 60%;
+    @include absolute-center;
+  }
+  &__img {
+    max-height: 65%;
+    object-fit: contain;
+  }
+  @media only screen and (min-width: 800px) {
+    &__side-info {
+      margin-left: 5rem;
+      margin-right: 5rem;
+    }
+  }
+}
+
+.flipcard-checkbox {
+  display: none;
+  // TOUCH EFFECTS IMPLEMENTED FOR TOUCH SCREENS
+  @media (any-hover: none) {
+    &:checked + .card {
+      z-index: 555555 !important;
+      transition-delay: 0s;
+    }
+    &:checked + .card .card__side--front {
+      transform: rotateY(-180deg);
+    }
+    &:checked + .card .card__side--back {
+      transform: rotateY(0);
+      height: calc(72vh + 3.6rem);
+      height: calc(var(--vvh, 1vh) * 72 + 3.6rem);
+      width: 80vw;
+    }
+    &:not(:checked) + .card .card__side--back {
+      transform: translate3d(0, 0, 0) rotateY(180deg);
+    }
+  }
+}
