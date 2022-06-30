@@ -10,6 +10,23 @@ $color-danger: #c32430;
 
 $color-tw-stgrey6: #78716c;
 
+$light: hsl(222, 10%, 56%);
+$primary: hsl(255, 30%, 55%);
+$focus: hsl(210, 90%, 50%);
+$border-color: hsla(0, 0%, 100%, 0.2);
+$global-background: #131720;
+$global2-background: #2f3441;
+$global3-background: #4e5055;
+$background: radial-gradient(circle at 100%, #131720, #2f3441 50%, #4e5055 75%);
+$background-image: radial-gradient(
+  circle at 100%,
+  hsl(210, 30%, 20%) 50%,
+  hsl(255, 30%, 25%)
+);
+
+$shadow-1: hsla(236, 50%, 50%, 0.3);
+$shadow-2: hsla(236, 50%, 50%, 0.4);
+
 /* ------------------------------------------------*/
 
 $default-font-size: 1.6rem;
@@ -20,13 +37,3 @@ $box-shadow-btn-up: 0 1rem 2rem rgba($color-black, 0.15);
 $box-shadow-btn-down: 0 0.5rem 1rem rgba($color-black, 0.15);
 
 /* ------------------------------------------------*/
-
-:root {
-  --vvh: 1vh;
-  --vvw: 1vw;
-  // --heading1-x-movement: 0;
-  // --heading1-y-movement: 0;
-  // --heading2-x-movement: 0;
-  // --heading2-y-movement: 0;
-  --headings-length: 75vw;
-}

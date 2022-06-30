@@ -12,11 +12,14 @@ const warningMsg = document.querySelector(".warning-message");
 
 // MAD TRUTH ENDING
 let numberOfCigarettesSmokes = 0;
+// He's always had the ring on him but it's actually a cult ring.
 
 // DELIRIOUS ENDING
 let bloodLossCount = 0;
+// Finds Julie but all too good to be true. She finds him and puts the ring on him.
 
 // IF NEITHER IS HIGH ENOUGH GO FOR BORING ENDING
+// He got killed by some guy who broke into his house.
 
 let storyNum = 0;
 
@@ -77,7 +80,7 @@ choice1Btn.addEventListener("click", function () {
     bloodLossCount++;
   }
   if (bloodLossCount > 0)
-    warningMsg.innerText = "Youre losing alot of blood right now.";
+    warningMsg.innerText = "You're losing alot of blood right now.";
 });
 
 choice2Btn.addEventListener("click", function () {
@@ -126,11 +129,29 @@ const S2_CHOICE2 = "Play?";
 const STORY2_C1 =
   "I was a salesman. In fact, you might say the only thing keeping me a man, at least insofar as we still suppose that word has a meaning, was sales. For that reason I tend not to talk about what I sold. But I figure, seeing as we're a couple of regular folks with nothing finer to do but talk, I may as well spill. I sold shampoo. I joke that what I made went down the drain, whether I gained or lost. Being a salesmen, shit like that makes me feel fuzzy inside to say, but rarely gets a laugh. A shampoo salesmen has no more and no fewer enemies than anyone, I suppose. I'm not setting the room on fire at dinner parties, sure, but I make out alright. Not that I've attended many lately. When you need to hold someone's hand to take a piss, making friends becomes kind of difficult. I've been signed on the brew for the past year with nothing but cassettes of Raymond Chandler for company. And if anyone remembers Employee No. 376 who walked out the door with a stick in one hand and his company stapler in the other - well, I can't think they'd have hatred in their heart. Could they? I mean, who shanks someone for being a former shampoo salesmen? Not likely.";
 
-const STORY2_C2 = "Play. ";
+const STORY2_C2 =
+  "The bookies. the ponies. Whatever you want to call it. I thought it was my trojan horse back into solvency. Turned out it was just something to wet my dick in without having a kid. It was a prize Philly. Brass band was the name. Short in the leg and long in the tooth. You never look a grift horse in the mouth. And besides the man I trusted told me it was a sure thing. If you asked Julia, she'd probably say the same thing. So I had the brass neck to put my band on the brass one. ";
 
 const S3_CHOICE1 = "Investigate What he says";
 const S3_CHOICE2 = "Carry on";
 
+// "I had my face pressed up against the glass like an expectant father waving dollars at the midwife. It came in short. Figures."
+// Wouldn't give away the ring so he was kicked the shit out of.
+// Is
+
+// Endings are whoevers name hes written in blood before he dies
+// One ending Julia killed him because he's abusive
+// Door to door salesman selling doors
+// Shampoo salesman is a ploy for BNE artist.
+// Company hires homeless people to sell shampoo and break an entry
+// Breaking an entry. - Waiting for him
+// Breaking an entry. - Having a saence
+// Stilted when hes talking to people. Broken narritive
+// Tells them hes finding a ring. Who's ring? Julias
+// They say were all trying to find julia too. Maybe we could help each other?
+//
+//
+// Weird sale
 // const LOOK_AROUND = [
 //   "look left",
 //   "look right",

@@ -2,24 +2,32 @@
   &,
   &:link,
   &:visited {
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 0.3rem;
     padding: 1.5rem 4rem;
     display: inline-block;
     border-radius: 2px !important;
     transition: transform 0.2s, opacity 0.2s, box-shadow 0.2s;
     position: relative;
-    font-size: 1.2rem;
+    font-size: 2rem;
     box-shadow: $box-shadow-btn-down;
     text-align: center;
     background-color: var(--color-btn);
     color: var(--color-btntxt);
-    width: 21rem;
+    width: calc(50vw - 20rem);
     margin: 2rem;
     //Change for the <button> element
     border: none;
     cursor: pointer;
-    height: 6rem;
+    height: 7rem;
+    @media only screen and (max-width: 1000px) {
+      width: calc(50vw - 15rem);
+    }
+    @media only screen and (max-width: 745px) {
+      width: calc(100vw - 18rem);
+    }
+    @media only screen and (max-width: 450px) {
+      width: calc(100vw - 12rem);
+    }
   }
   &:hover {
     transform: translateY(-3px);
