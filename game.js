@@ -21,115 +21,131 @@ let bloodLossCount = 0;
 // IF NEITHER IS HIGH ENOUGH GO FOR BORING ENDING
 // He got killed by some guy who broke into his house.
 
-let storyNum = 0;
+let storyStage = 0;
 
 let storyChoice = null;
 
 let completed = 0;
 
-const STORY1 =
+const STAGE1_INITIAL_STORY =
   "Words like 'cold' and 'serrated' came to mind as the last ridge of the steel left my belly. By way of a goodbye, the blood I knew was red ran down the jeans I knew were blue, and there wasn't much I could think to say besides, 'oh, well that's that then'. I felt a someone's breath pollute the air I had no choice but than to breathe, and sank to the floor. Braids of what I knew must be the rug bristled my cheek, and all the fury in me started spilling like the proverbial. It was a poor end to a poor valentines, and if it wasn't love that blinded me, it was fury. I heard the door slam shut, wheels spin in gravel, and rubber peel of into what I suspected must be night. Son-of-a-bitch. I figured I had a good half hour before I bled out, and no name to put to the face that would be the last I'd never see. Son-of-a-bitch. Time enough to think.";
 
-const S1_CHOICE1 = "Bleed a little more";
-const S1_CHOICE2 = "Examine the damage ";
-const S1_CHOICE3 = "Julia";
-const S1_CHOICE4 = "Light a cigarette";
+const STAGE1_CHOICE1 = "Bleed a little more";
+const STAGE1_CHOICE2 = "Examine the damage ";
+const STAGE1_CHOICE3 = "Julia";
+const STAGE1_CHOICE4 = "Light a cigarette";
 
-const STORY1_C1 =
+const STAGE1_CHOICE1_STORY =
   "It's surprisingly easy to lose blood, once you get going. They do say if you love something, you should set it free. The speed I was losing it, it was like the stuff had been trying to get away from me for some time. Guess I'd better use what little I've got left wisely. Think fast, dammit - fast as blood can run.";
 
-const STORY1_C2 =
+const STAGE1_CHOICE2_STORY =
   "I put my hand in my pocket and felt the space my wallet should be. Still present - and as empty as it had been the day before. The roll-call continued - stubble, present. Shirt, present, though dyed what I could only imagine a lurid shade of crimson. I breathed in through my nose and the rising damp from the downstairs bathroom reassured me with familiar connotations of penury and destitution. All of that was maybe though - and it didn't stop the bleeding, or give me a name to put to that son-of-a-bitch's face.";
 
-const STORY1_C3 =
+const STAGE1_CHOICE3_STORY =
   // JULIA
   // QUEUE SOUND EFFECT AND VISUAL
   "I wanted a wife who'd make me eggs in the morning. The only thing she served me in the 8 years we shared a bed was papers. Slipped them in my hands one day instead of the tabloids. I should've listened to my mother. I'd recount her good advice, were it not that I hadn't listened to it in the first place. That was 3 years ago - I was starting to lose it by then, and when I watched her walk away she was a smudge of colour exiting the room at high speed. I'd pinched my nose and fumbled for something crystal and something wet to put inside it. I wonder where she could be - and whose bed she's warming. It could be blood loss, but I'm warming to the idea of paying her one last visit. Let's say I get to my feet and catch my bearings. The dead don't walk - it would prove I'm still alive.";
 
-const STORY1_C4 =
+const STAGE2_INITIAL_STORY = STAGE1_CHOICE3_STORY;
+
+const STAGE1_CHOICE4_STORY =
   // LIGHT A CIGARETTE. SENSE OF SMELL, an accompanying image?
   "The old familiar battered box - I rattled it in my hand. The son - or daughter - of a bitch had been magnanimous enough to leave me one last cigarette for my trouble. The zippo I lit the papers with was still where I'd left it, cold metal above where my heart should be. After twenty long and principally hard years of smoking the damn things, I had a sense of how far I should hold the flame from my expectant lips to hit the tip. I inhaled smoke about as quick as my body exhaled blood, and I'd be lying if I told you it wasn't about the best damn thing I'd tasted in days. Hemingway said a bottle of red wine was a good friend. A cigarette is a good priest. I could read my last rites in the smoke I couldn't see. Hurry now. Not much longer. ";
 
 function displayGameLoop(story, choices) {
-  storyNum++;
+  storyStage++;
   storyEl.innerText = story;
   choices.forEach((choice, i) => {
     choiceBtns[i].innerText = choice;
   });
 }
 
-displayGameLoop(STORY1, [S1_CHOICE1, S1_CHOICE2, S1_CHOICE3, S1_CHOICE4]);
+displayGameLoop(STAGE1_INITIAL_STORY, [
+  STAGE1_CHOICE1,
+  STAGE1_CHOICE2,
+  STAGE1_CHOICE3,
+  STAGE1_CHOICE4,
+]);
 
 choice1Btn.addEventListener("click", function () {
   warningMsg.innerText = "";
   storyChoice = 1;
-  if (storyNum === 1) {
+  if (storyStage === 1) {
     choice1Btn.style.display = "none";
     choice2Btn.style.display = "";
     choice3Btn.style.display = "";
     choice4Btn.style.display = "";
     bloodLossCount++;
-    storyEl.innerText = STORY1_C1;
+    storyEl.innerText = STAGE1_CHOICE1_STORY;
   }
-  if (storyNum === 2) {
+  if (storyStage === 2) {
     choice1Btn.style.display = "none";
     choice2Btn.style.display = "";
-    storyEl.innerText = STORY2_C1;
+    storyEl.innerText = STAGE2_CHOICE1_STORY;
   }
-  if (storyNum === 3) {
+  if (storyStage === 3) {
     bloodLossCount++;
   }
   if (bloodLossCount > 0)
-    warningMsg.innerText = "You're losing alot of blood right now.";
+    warningMsg.innerText = "You're losing a lot of blood right now.";
+  window.scrollTo(0, 0);
 });
 
 choice2Btn.addEventListener("click", function () {
   warningMsg.innerText = "";
   storyChoice = 2;
-  if (storyNum === 1) {
+  if (storyStage === 1) {
     choice1Btn.style.display = "";
     choice2Btn.style.display = "none";
     choice3Btn.style.display = "";
     choice4Btn.style.display = "";
-    storyEl.innerText = STORY1_C2;
+    storyEl.innerText = STAGE1_CHOICE2_STORY;
   }
+  if (storyStage === 2) {
+    choice1Btn.style.display = "";
+    choice2Btn.style.display = "";
+    choice3Btn.style.display = "none";
+    choice4Btn.style.display = "none";
+    storyEl.innerText = STAGE2_CHOICE2_STORY;
+  }
+  window.scrollTo(0, 0);
 });
 
 choice3Btn.addEventListener("click", function () {
   warningMsg.innerText = "";
   storyChoice = 3;
-  if (storyNum === 1) {
+  if (storyStage === 1) {
     choice2Btn.style.display = "";
     choice1Btn.style.display = "";
     choice3Btn.style.display = "none";
     choice4Btn.style.display = "none";
-    storyEl.innerText = STORY1_C3;
-    displayGameLoop(STORY1_C3, [S2_CHOICE1, S2_CHOICE2]);
+    storyEl.innerText = STAGE1_CHOICE3_STORY;
+    displayGameLoop(STAGE2_INITIAL_STORY, [STAGE2_CHOICE1, STAGE2_CHOICE2]);
   }
+  window.scrollTo(0, 0);
 });
 
 choice4Btn.addEventListener("click", function () {
   warningMsg.innerText = "";
   storyChoice = 4;
-  if (storyNum === 1) {
+  if (storyStage === 1) {
     choice2Btn.style.display = "";
     choice1Btn.style.display = "";
     choice3Btn.style.display = "";
     choice4Btn.style.display = "none";
-    storyEl.innerText = STORY1_C4;
+    storyEl.innerText = STAGE1_CHOICE4;
     numberOfCigarettesSmokes++;
   }
+  window.scrollTo(0, 0);
 });
 
-const STORY2 = S1_CHOICE3;
+const STAGE2_CHOICE1 = "Work?";
+const STAGE2_CHOICE2 = "Play?";
 
-const S2_CHOICE1 = "Work?";
-const S2_CHOICE2 = "Play?";
-
-const STORY2_C1 =
+const STAGE2_CHOICE1_STORY =
   "I was a salesman. In fact, you might say the only thing keeping me a man, at least insofar as we still suppose that word has a meaning, was sales. For that reason I tend not to talk about what I sold. But I figure, seeing as we're a couple of regular folks with nothing finer to do but talk, I may as well spill. I sold shampoo. I joke that what I made went down the drain, whether I gained or lost. Being a salesmen, shit like that makes me feel fuzzy inside to say, but rarely gets a laugh. A shampoo salesmen has no more and no fewer enemies than anyone, I suppose. I'm not setting the room on fire at dinner parties, sure, but I make out alright. Not that I've attended many lately. When you need to hold someone's hand to take a piss, making friends becomes kind of difficult. I've been signed on the brew for the past year with nothing but cassettes of Raymond Chandler for company. And if anyone remembers Employee No. 376 who walked out the door with a stick in one hand and his company stapler in the other - well, I can't think they'd have hatred in their heart. Could they? I mean, who shanks someone for being a former shampoo salesmen? Not likely.";
 
-const STORY2_C2 =
+const STAGE2_CHOICE2_STORY =
   "The bookies. the ponies. Whatever you want to call it. I thought it was my trojan horse back into solvency. Turned out it was just something to wet my dick in without having a kid. It was a prize Philly. Brass band was the name. Short in the leg and long in the tooth. You never look a grift horse in the mouth. And besides the man I trusted told me it was a sure thing. If you asked Julia, she'd probably say the same thing. So I had the brass neck to put my band on the brass one. ";
 
 const S3_CHOICE1 = "Investigate What he says";
